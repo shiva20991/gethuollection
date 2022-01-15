@@ -1,0 +1,75 @@
+Skip to content
+Search or jump to…
+Pulls
+Issues
+Marketplace
+Explore
+ 
+@shiva20991 
+shiva20991
+/
+gethuollection
+Public
+Code
+Issues
+Pull requests
+Projects
+Wiki
+Security
+Insights
+More
+gethuollection/.github/workflows/main.yml
+@harshpreets63
+harshpreets63 Add WorkFLow Method For Hosting
+…
+Latest commit 5fda464 on Oct 26, 2021
+ History
+ 2 contributors
+33 lines (19 sloc)  589 Bytes
+   
+name: Host On Heroku
+
+on: workflow_dispatch
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - uses: akhileshns/heroku-deploy@v3.12.12 
+
+        with:
+
+          region: "eu"
+
+          branch: "master"
+
+          usedocker: true
+
+          stack: "container"
+
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+
+          docker_heroku_process_type: worker
+        env:
+          HD_CONFIG_FILE_URL: ${{secrets.CONFIG_FILE_URL}}
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
